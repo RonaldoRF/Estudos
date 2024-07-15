@@ -135,13 +135,74 @@ myproject/
 │   │           ├── urls.py
 │   │           ├── wsgi.py
 │   ├── React (Front-end)
-│   │   └── ??
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   │   ├── Header/
+│   │   │   │   │   ├── Header.js
+│   │   │   │   │   └── Header.css
+│   │   │   │   ├── Footer/
+│   │   │   │   │   ├── Footer.js
+│   │   │   │   │   └── Footer.css
+│   │   │   │   └── ...
+│   │   │   ├── pages/
+│   │   │   │   ├── Home/
+│   │   │   │   │   ├── Home.js
+│   │   │   │   │   └── Home.css
+│   │   │   │   ├── About/
+│   │   │   │   │   ├── About.js
+│   │   │   │   │   └── About.css
+│   │   │   │   └── ...
+│   │   │   ├── services/
+│   │   │   │   ├── api.js
+│   │   │   │   └── ...
+│   │   │   ├── utils/
+│   │   │   │   ├── helpers.js
+│   │   │   │   └── ...
+│   │   │   ├── styles/
+│   │   │   │   ├── global.css
+│   │   │   │   └── ...
+│   │   │   ├── App.js
+│   │   │   ├── index.js
+│   │   │   └── index.css
+│   │   ├── public/
+│   │   │   ├── index.html
+│   │   │   ├── favicon.ico
+│   │   │   └── ...
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── .gitignore
+│   │   ├── .env
+│   │   └── README.md
 │   ├── Nginx1 (proxy reverso entre os microserviços e o banco de dados)
-│   │   └── ??
+│   │   ├── nginx.conf
+│   │   ├── default.conf
+│   │   ├── mime.types
+│   │   ├── fastcgi_params
+│   │   ├── uwsgi_params
+│   │   ├── ssl/
+│   │   │   ├── server.crt
+│   │   │   └── server.key
+│   │   └── nginx.sh
 │   ├── Nginx2 (proxy reverso entre o Django e as APIs FastAPI)
-│   │   └── ??
+│   │   ├── nginx.conf
+│   │   ├── default.conf
+│   │   ├── mime.types
+│   │   ├── fastcgi_params
+│   │   ├── uwsgi_params
+│   │   ├── ssl/
+│   │   │   ├── server.crt
+│   │   │   └── server.key
+│   │   └── nginx.sh
 │   ├── Nginx3 (proxy reverso entre as APIs e o front-end)
-│   │   └── ??
+│   │   ├── nginx.conf
+│   │   ├── default.conf
+│   │   ├── mime.types
+│   │   ├── fastcgi_params
+│   │   ├── uwsgi_params
+│   │   ├── ssl/
+│   │   │   ├── server.crt
+│   │   │   └── server.key
+│   │   └── nginx.sh
 │   ├── Database
 │   │   └── sql/
 │   │       └── init-db.sql
@@ -156,7 +217,7 @@ myproject/
 │   ├── docker-compose.yml
 │   └── .env
 ├── draw/
-│   ├── Fluxo_Workflow_de_propostas.drawio
+│   └── Fluxo_Workflow_de_propostas.drawio
 └── README.md
 
 ```
