@@ -19,164 +19,149 @@ O sistema dispõe das seguintes funcionalidades:
 8. Anonimização de dados sensiveis por papéis e funções;
 9. Envio de enmails automatizado, e com programação de cobrança de posição em relação ao contrato/proposta;
 
+## Estrutura do projeto
+O projeto foi estruturado da seguinte forma para que os componentes da arquitetura fiquem organizados, facilitando sua manutenção.
+```
+myproject/
+├── code/
+│   ├── FastAPI 
+│   │   ├── Address_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Address_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Auth_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Auth_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Contract_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Contract_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Customer_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Customer_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Leads_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Leads_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Proposal_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Proposal_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Template_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Template_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   └── User_Service/
+│   │       ├── app/
+│   │       │   ├── __init__.py
+│   │       │   ├── models.py
+│   │       │   ├── routes/
+│   │       │   │   ├── __init__.py
+│   │       │   │   └── User_routes.py
+│   │       │   └── config.py
+│   │       ├── Dockerfile
+│   │       ├── requirements.txt
+│   │       └── run.py
+│   ├── DjangoApp/
+│   │   ├── Dockerfile
+│   │   ├── requirements.txt
+│   │   ├── manage.py
+│   │   ├── app/
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   ├── serializers.py
+│   │   ├── migrations/
+│   │   │   ├── __init__.py
+│   │   └── templates/
+│   │       └── project/
+│   │           ├── __init__.py
+│   │           ├── asgi.py
+│   │           ├── settings.py
+│   │           ├── urls.py
+│   │           ├── wsgi.py
+│   ├── React (Front-end)
+│   │   └── ??
+│   ├── Nginx1 (proxy reverso entre os microserviços e o banco de dados)
+│   │   └── ??
+│   ├── Nginx2 (proxy reverso entre o Django e as APIs FastAPI)
+│   │   └── ??
+│   ├── Nginx3 (proxy reverso entre as APIs e o front-end)
+│   │   └── ??
+│   ├── Database
+│   │   └── sql/
+│   │       └── init-db.sql
+│   ├── Dockerfiles/
+│   │   ├── Dockerfile-database
+│   │   ├── Dockerfile-nginx_DB_MS
+│   │   ├── Dockerfile-django
+│   │   ├── Dockerfile-nginx_MS_API
+│   │   ├── Dockerfile-flastAPI
+│   │   ├── Dockerfile-nginx_API_Front
+│   │   └── Dockerfile-react
+│   ├── docker-compose.yml
+│   └── .env
+├── draw/
+│   ├── Fluxo_Workflow_de_propostas.drawio
+└── README.md
+
+```
+
 ## Tabelas da aplicação
-Obs. Abaixo estão os nomes das tabelas, suas chaves primárias e suas chaves estrangeiras, estando descritas no seguinte formato:
- - Tabela: Nome lógico da tabela 
-   - PK: Chave primária
-   - FK: Chaves estrangeiras
-
-Tabelas e suas PKs e FKs:
- - Tabela: País
-   - PK:
-     - Código País
- - Tabela: Estado
-   - PK:
-     - Código Estado
-     - Código País(FK)
- - Tabela: Cidade
-   - PK: 
-     - Código Cidade
-     - Código Estado(FK)
-     - Código País(FK)
- - Tabela: Logradouro
-   - PK: 
-     - Código Logradouro
-     - Código Cidade(FK)
-     - Código Estado(FK)
-     - Código País(FK)
- - Tabela: Endereço
-   - PK: 
-     - Código Endereço
-   - FK:
-     - Código Logradouro
-     - Código Cidade
-     - Código Estado
-     - Código País
- - Tabela: Setor de Atuação
-   - PK: 
-     - Código Setor de Atuação
- - Tabela: Segmento de Mercado
-   - PK: 
-     - Código Segmento de Mercado
-     - Código Setor de Atuação (FK)
- - Tabela: Ramo de Atividade
-   - PK: 
-     - Código Ramo de Atividade
-     - Código Segmento de Mercado(FK)
-     - Código Setor de Atuação(FK)
- - Tabela: Subcategoria de Serviço
-   - PK: 
-     - Código Subcategoria de Serviço
-     - Código Ramo de Atividade(FK)
-     - Código Segmento de Mercado(FK)
-     - Código Setor de Atuação(FK)
- - Tabela: Cliente
-   - PK:
-     - Código do Cliente
-   - FK:
-     - Código Subcategoria de Serviço
-     - Código Ramo de Atividade
-     - Código Segmento de Mercado
-     - Código Setor de Atuação
-     - Código Endereço
- - Tabela: Funcionários
-   - PK: 
-     - Código Funcionário
- - Tabela: Canal Comunicação
-   - PK:
-     - Código Canal Comunicaçao
- - Tabela: Funcionário x Canal Comunicaçao
-   - PK: 
-     - Código Canal Funcionário(Auto Incremental)
-   - FK:
-     - Código Funcionário
-     - Código Canal Comunicaçao
- - Tabela: Função
-   - PK: 
-     - Código Função
- - Tabela: Step
-   - PK: 
-     - Código Step
- - Tabela: Funcionário x Função x Step
-   - PK: 
-     - Código Funcionário(FK)
-     - Código Função(FK)
-     - Código Step(FK)
- - Tabela: Atributo Variáveis
-   - PK: 
-     - Código Atributos Variáveis
- - Tabela: Templates
-   - PK: 
-     - Código Template
- - Tabela: Template x Atributos Variáveis
-   - PK: 
-     - Código Template(FK)
-     - Código Atributos Variáveis(FK)
- - Tabela: Atributos Fixos
-   - PK: 
-     - Código Atributos Fixos
- - Tabela: Template x Atributos Fixos
-   - PK: 
-     - Código Template(FK)
-     - Código Atributos Fixos(FK)
- - Tabela: Template x Step
-   - PK: 
-     - Código Template(FK)
-     - Código Step(FK)
- - Tabela: Lead
-   - PK: 
-     - Código Lead
-   - FK:
-     - Código Cliente
- - Tabela: Propostas
-   - PK: 
-     - Código Proposta
-     - Código Versão
-   - FK:
-     - Código Lead
-     - Código Template
-     - Código Step
- - Tabela: Contratos
-   - PK: 
-     - Código Contrato
-     - Código Versão
-   - FK:
-     - Código Cliente
-     - Código Template
-     - Código Step
- - Tabela: Observações
-   - PK: 
-     - Código Observação(Auto Incremental)
-   - FK:
-     - Código Cliente (preenchidoo quando a observação for referente ao Cliente)
-     - Código Funcionário (preenchidoo quando a observação for referente ao Funcionário)
-     - Código Lead (preenchidoo quando a observação for referente ao Lead)
-     - Código Contrato (preenchidoo quando a observação for referente ao Contrato)
-     - Código Proposta (preenchidoo quando a observação for referente à Proposta)
-     - Código Versão (preenchidoo quando a observação for referente ao Contrato ou à Proposta)
- - Tabela: Tipo de Interação
-   - PK:
-     - Código Tipo de Interação
- - Tabela: Interação
-   - PK:
-     - Código Interação
-     - Código Cliente
-   - FK:
-     - Código Funcionário
-     - Código Tipo de Interação (e-mail, ligação, reunião, etc.)
- - Tabela: Tipo de Feedback
-   - PK: Código Tipo de Feedback
- - Tabela: Feedback
-   - PK:
-     - Código Feedback
-   - FK:
-     - Código Cliente
-     - Código Funcionário
-     - Código Proposta (se aplicável)
-     - Código Contrato (se aplicável)
-     - Código Interação (se aplicável)
-     - Código Tipo de Feedback (positivo, negativo, sugestão, etc.)
-
 
 ## Detalhamento das Funcionalidades
 
