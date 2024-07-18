@@ -222,7 +222,252 @@ myproject/
 
 ```
 
+<<<<<<< HEAD
+## Possiveis API's
+### <b><i>API's de Clientes</i></b>
+=======
 ## Tabelas da aplicação
+>>>>>>> fe015a8f79d8331cb065d8fb0378d52b1bee577c
+
+<table>
+<tr><th> Clientes</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/customers: Obter a lista de todos os clientes.</td></tr>
+<tr><td>GET</td><td>/api/customers/{id}: Obter detalhes de um cliente específico.</td></tr>
+<tr><td>POST</td><td>/api/customers: Criar um novo cliente.</td></tr>
+<tr><td>PUT</td><td>/api/customers/{id}: Atualizar informações de um cliente específico.</td></tr>
+<tr><td>DELETE</td><td>/api/customers/{id}: Excluir um cliente.</td></tr>
+</table>
+<br>
+<table>
+<tr><th>Endereços do Cliente</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/customers/{customer_id}/addresses: Obter a lista de endereços de um cliente.</td></tr>
+<tr><td>POST</td><td>/api/customers/{customer_id}/addresses: Adicionar um novo endereço para um cliente.</td></tr>
+<tr><td>PUT</td><td>/api/customers/{customer_id}/addresses/{id}: Atualizar um endereço específico de um cliente.</td></tr>
+<tr><td>DELETE</td><td>/api/customers/{customer_id}/addresses/{id}: Excluir um endereço específico de um cliente.</td></tr>
+</table>
+<table>
+<tr><th>Contatos do Cliente</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/customers/{customer_id}/contacts: Obter a lista de contatos de um cliente.</td></tr>
+<tr><td>POST</td><td>/api/customers/{customer_id}/contacts: Adicionar um novo contato para um cliente.</td></tr>
+<tr><td>PUT</td><td>/api/customers/{customer_id}/contacts/{id}: Atualizar um contato específico de um cliente.</td></tr>
+<tr><td>DELETE</td><td>/api/customers/{customer_id}/contacts/{id}: Excluir um contato específico de um cliente.</td></tr>
+</table>
+<table>
+<tr><th>Representantes do Cliente</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/customers/{customer_id}/representatives: Obter a lista de representantes de um cliente.</td></tr>
+<tr><td>POST</td><td>/api/customers/{customer_id}/representatives: Adicionar um novo representante para um cliente.</td></tr>
+<tr><td>PUT</td><td>/api/customers/{customer_id}/representatives/{id}: Atualizar um representante específico de um cliente.</td></tr>
+<tr><td>DELETE</td><td>/api/customers/{customer_id}/representatives/{id}: Excluir um representante específico de um cliente.</td></tr>
+</table>
+
+### <b><i>Propostas</i></b>
+<table>
+<tr><th>Propostas</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/proposals: Obter a lista de todas as propostas.</td></tr>
+<tr><td>GET</td><td>/api/proposals/{id}: Obter detalhes de uma proposta específica.</td></tr>
+<tr><td>POST</td><td>/api/proposals: Criar uma nova proposta.</td></tr>
+<tr><td>PUT</td><td>/api/proposals/{id}: Atualizar informações de uma proposta específica.</td></tr>
+<tr><td>DELETE</td><td>/api/proposals/{id}: Excluir uma proposta.</td></tr>
+</table>
+
+<table>
+<tr><th>Aprovações de Propostas</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/proposals/{proposal_id}/approvals: Obter a lista de aprovações de uma proposta.</td></tr>
+<tr><td>POST</td><td>/api/proposals/{proposal_id}/approvals: Adicionar uma nova aprovação para uma proposta.</td></tr>
+<tr><td>PUT</td><td>/api/proposals/{proposal_id}/approvals/{id}: Atualizar uma aprovação específica de uma proposta.</td></tr>
+<tr><td>DELETE</td><td>/api/proposals/{proposal_id}/approvals/{id}: Excluir uma aprovação específica de uma proposta.</td></tr>
+</table>
+
+### <b><i>APIs para Templates<i/></b>
+<table>
+<tr><th>Templates de Propostas</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/templates: Obter a lista de todos os templates de propostas.</td></tr>
+<tr><td>GET</td><td>/api/templates/{id}: Obter detalhes de um template específico.</td></tr>
+<tr><td>POST</td><td>/api/templates: Criar um novo template.</td></tr>
+<tr><td>PUT</td><td>/api/templates/{id}: Atualizar um template específico.</td></tr>
+<tr><td>DELETE</td><td>/api/templates/{id}: Excluir um template.</td></tr>
+</table>
+
+### <b><i>APIs para Leads</i></b>
+<table>
+<tr><th>Leads</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/leads: Obter a lista de todos os leads.</td></tr>
+<tr><td>GET</td><td>/api/leads/{id}: Obter detalhes de um lead específico.</td></tr>
+<tr><td>POST</td><td>/api/leads: Criar um novo lead.</td></tr>
+<tr><td>PUT</td><td>/api/leads/{id}: Atualizar informações de um lead específico.</td></tr>
+<tr><td>DELETE</td><td>/api/leads/{id}: Excluir um lead.</td></tr>
+</table>
+
+### <b><i>APIs para Funcionários</i></b>
+<table>
+<tr><th>Funcionários</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/employees: Obter a lista de todos os funcionários.</td></tr>
+<tr><td>GET</td><td>/api/employees/{id}: Obter detalhes de um funcionário específico.</td></tr>
+<tr><td>POST</td><td>/api/employees: Criar um novo funcionário.</td></tr>
+<tr><td>PUT</td><td>/api/employees/{id}: Atualizar informações de um funcionário específico.</td></tr>
+<tr><td>DELETE</td><td>/api/employees/{id}: Excluir um funcionário.</td></tr>
+</table>
+
+<table>
+<tr><th>Funções dos Funcionários</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/employees/{employee_id}/roles: Obter a lista de funções de um funcionário.</td></tr>
+<tr><td>POST</td><td>/api/employees/{employee_id}/roles: Adicionar uma nova função para um funcionário.</td></tr>
+<tr><td>PUT</td><td>/api/employees/{employee_id}/roles/{id}: Atualizar uma função específica de um funcionário.</td></tr>
+<tr><td>DELETE</td><td>/api/employees/{employee_id}/roles/{id}: Excluir uma função específica de um funcionário.</td></tr>
+</table>
+
+### <b><i>APIs para Feedback e Observações</i></b>
+<table>
+<tr><th>Feedback</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/feedback: Obter a lista de todos os feedbacks.</td></tr>
+<tr><td>GET</td><td>/api/feedback/{id}: Obter detalhes de um feedback específico.</td></tr>
+<tr><td>POST</td><td>/api/feedback: Adicionar um novo feedback.</td></tr>
+<tr><td>PUT</td><td>/api/feedback/{id}: Atualizar um feedback específico.</td></tr>
+<tr><td>DELETE</td><td>/api/feedback/{id}: Excluir um feedback.</td></tr>
+</table>
+
+
+### <b><i>APIs para Relatórios</i></b>
+<table>
+<tr><th>Relatórios</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/reports: Obter a lista de todos os relatórios.</td></tr>
+<tr><td>GET</td><td>/api/reports/{id}: Obter detalhes de um relatório específico.</td></tr>
+<tr><td>POST</td><td>/api/reports: Criar um novo relatório.</td></tr>
+<tr><td>PUT</td><td>/api/reports/{id}: Atualizar informações de um relatório específico.</td></tr>
+<tr><td>DELETE</td><td>/api/reports/{id}: Excluir um relatório.</td></tr>
+</table>
+
+
+### <b><i>APIs para Integração com CRM</i></b>
+<table>
+<tr><th>Integração com CRM</th><th>Route</th></tr>
+<tr><td>GET</td><td>/api/crm/customers: Sincronizar a lista de clientes com o CRM.</td></tr>
+<tr><td>POST</td><td>/api/crm/customers: Enviar novos clientes ao CRM.</td></tr>
+<tr><td>GET</td><td>/api/crm/leads: Sincronizar a lista de leads com o CRM.</td></tr>
+<tr><td>POST</td><td>/api/crm/leads: Enviar novos leads ao CRM.</td></tr>
+</table>
+
+### <b><i>APIs para Segurança e Autenticação</i></b>
+<table>
+<tr><th>Autenticação</th><th>Route</th></tr>
+<tr><td>POST</td><td>/api/auth/login: Autenticar um usuário e obter um token JWT.</td></tr>
+<tr><td>POST</td><td>/api/auth/register: Registrar um novo usuário.</td></tr>
+<tr><td>POST</td><td>/api/auth/logout: Logout do usuário e invalidar o token JWT.</td></tr>
+</table>
+
+## Estrutura de projeto
+O desenvolvimento deve ser realizado dentro da pasta **Code**, mantendo a estrutura sugerida abaixo:
+
+```
+├── Code
+│   ├──FlowContracts/
+│   │  ├── Address_Service/
+│   │  │   ├── app/
+│   │  │   │   ├── __init__.py
+│   │  │   │   ├── models.py
+│   │  │   │   ├── routes/
+│   │  │   │   │   ├── __init__.py
+│   │  │   │   │   ├── Address_routes.py
+│   │  │   │   ├── config.py
+│   │  │   ├── Dockerfile
+│   │  │   ├── requirements.txt
+│   │  │   ├── run.py
+│   │  ├── Auth_Service/
+│   │  │   ├── app/
+│   │  │   │   ├── __init__.py
+│   │  │   │   ├── models.py
+│   │  │   │   ├── routes/
+│   │  │   │   │   ├── __init__.py
+│   │  │   │   │   ├── Auth_routes.py
+│   │  │   │   ├── config.py
+│   │  │   ├── Dockerfile
+│   │  │   ├── requirements.txt
+│   │  │   ├── run.py
+│   │  ├── Contract_Service/
+│   │  │   ├── app/
+│   │  │   │   ├── __init__.py
+│   │  │   │   ├── models.py
+│   │  │   │   ├── routes/
+│   │  │   │   │   ├── __init__.py
+│   │  │   │   │   ├── Contract_routes.py
+│   │  │   │   ├── config.py
+│   │  │   ├── Dockerfile
+│   │  │   ├── requirements.txt
+│   │  │   ├── run.py
+│   │  ├── Customer_Service/
+│   │  │   ├── app/
+│   │  │   │   ├── __init__.py
+│   │  │   │   ├── models.py
+│   │  │   │   ├── routes/
+│   │  │   │   │   ├── __init__.py
+│   │  │   │   │   ├── Customer_routes.py
+│   │  │   │   ├── config.py
+│   │  │   ├── Dockerfile
+│   │  │   ├── requirements.txt
+│   │  │   ├── run.py
+│   │  ├── Leads_Service/
+│   │  │   ├── app/
+│   │  │   │   ├── __init__.py
+│   │  │   │   ├── models.py
+│   │  │   │   ├── routes/
+│   │  │   │   │   ├── __init__.py
+│   │  │   │   │   ├── Leads_routes.py
+│   │  │   │   ├── config.py
+│   │  │   ├── Dockerfile
+│   │  │   ├── requirements.txt
+│   │  │   ├── run.py
+│   │  ├── Proposal_Service/
+│   │  │   ├── app/
+│   │  │   │   ├── __init__.py
+│   │  │   │   ├── models.py
+│   │  │   │   ├── routes/
+│   │  │   │   │   ├── __init__.py
+│   │  │   │   │   ├── Proposal_routes.py
+│   │  │   │   ├── config.py
+│   │  │   ├── Dockerfile
+│   │  │   ├── requirements.txt
+│   │  │   ├── run.py
+│   │  ├── Template_Service/
+│   │  │   ├── app/
+│   │  │   │   ├── __init__.py
+│   │  │   │   ├── models.py
+│   │  │   │   ├── routes/
+│   │  │   │   │   ├── __init__.py
+│   │  │   │   │   ├── Template_routes.py
+│   │  │   │   ├── config.py
+│   │  │   ├── Dockerfile
+│   │  │   ├── requirements.txt
+│   │  │   ├── run.py
+│   │  ├──User_Service/
+│   │  │   ├── app/
+│   │  │   │   ├── __init__.py
+│   │  │   │   ├── models.py
+│   │  │   │   ├── routes/
+│   │  │   │   │   ├── __init__.py
+│   │  │   │   │   ├── User_routes.py
+│   │  │   │   ├── config.py
+│   │  │   ├── Dockerfile
+│   │  │   ├── requirements.txt
+│   │  │   ├── run.py
+│   │  ├──{Service-1}_Service/
+│   │  │   ├── app/
+│   │  │   │   ├── __init__.py
+│   │  │   │   ├── models.py
+│   │  │   │   ├── routes/
+│   │  │   │   │   ├── __init__.py
+│   │  │   │   │   ├── {Service-1}_routes.py
+│   │  │   │   ├── config.py
+│   │  │   ├── Dockerfile
+│   │  │   ├── requirements.txt
+│   │  │   ├── run.py
+│   │  ├── docker-compose.yml
+│   │  └── .env
+│   ├── SQL/
+│   │   ├── init.sql
+├── Draw
+│   ├── Fluxo Workflow de propostas.drawio
+└── Readme.md
+```
 
 ## Detalhamento das Funcionalidades
 
