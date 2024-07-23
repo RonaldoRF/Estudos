@@ -6,6 +6,8 @@ GRANT ALL PRIVILEGES ON WorkflowDb.* TO 'aluno'@'%';
 
 FLUSH PRIVILEGES;
 
+use WorkflowDb;
+
 -- Script para criação da tabela País
 -- Script para criação da tabela Country, se não existir
 CREATE TABLE IF NOT EXISTS Country (
@@ -26,8 +28,8 @@ CREATE TABLE IF NOT EXISTS Country (
     CreatedBy INT,
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela State, se não existir
@@ -47,8 +49,8 @@ CREATE TABLE IF NOT EXISTS State (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
     FOREIGN KEY (CountryCode) REFERENCES Country(CountryCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela City, se não existir
@@ -65,8 +67,8 @@ CREATE TABLE IF NOT EXISTS City (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
     FOREIGN KEY (StateCode) REFERENCES State(StateCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela Street, se não existir
@@ -83,8 +85,8 @@ CREATE TABLE IF NOT EXISTS Street (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
     FOREIGN KEY (CityCode) REFERENCES City(CityCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela BusinessSector, se não existir
@@ -96,8 +98,8 @@ CREATE TABLE IF NOT EXISTS BusinessSector (
     CreatedBy INT,
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela MarketSegment, se não existir
@@ -111,8 +113,8 @@ CREATE TABLE IF NOT EXISTS MarketSegment (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
     FOREIGN KEY (BusinessSectorCode) REFERENCES BusinessSector(BusinessSectorCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela ActivityBranch, se não existir
@@ -126,8 +128,8 @@ CREATE TABLE IF NOT EXISTS ActivityBranch (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
     FOREIGN KEY (MarketSegmentCode) REFERENCES MarketSegment(MarketSegmentCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela ServiceSubcategory, se não existir
@@ -141,8 +143,8 @@ CREATE TABLE IF NOT EXISTS ServiceSubcategory (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
     FOREIGN KEY (ActivityBranchCode) REFERENCES ActivityBranch(ActivityBranchCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela Customer, se não existir
@@ -157,24 +159,26 @@ CREATE TABLE IF NOT EXISTS Customer (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
     FOREIGN KEY (ServiceSubcategoryCode) REFERENCES ServiceSubcategory(ServiceSubcategoryCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela CustomerAddress, se não existir
 CREATE TABLE IF NOT EXISTS CustomerAddress (
     CustomerAddressCode INT AUTO_INCREMENT PRIMARY KEY,
     CustomerCode INT,
-    AddressCode INT,
+    StreetCode INT,
+    AddressNumber INT,
+    AdditionalAddressInformation VARCHAR(100),
     PrimaryAddress BOOLEAN DEFAULT FALSE,
     CreationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     CreatedBy INT,
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
     FOREIGN KEY (CustomerCode) REFERENCES Customer(CustomerCode),
-    FOREIGN KEY (AddressCode) REFERENCES Address(AddressCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (StreetCode) REFERENCES Street(StreetCode),
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela ContactChannelType, se não existir
@@ -185,8 +189,8 @@ CREATE TABLE IF NOT EXISTS ContactChannelType (
     CreatedBy INT,
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela Representative, se não existir
@@ -200,8 +204,8 @@ CREATE TABLE IF NOT EXISTS Representative (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT,
     FOREIGN KEY (CustomerCode) REFERENCES Customer(CustomerCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
 -- Script para criação da tabela ContactChannelRepresentative, se não existir
@@ -219,7 +223,7 @@ CREATE TABLE IF NOT EXISTS ContactChannelRepresentative (
     FOREIGN KEY (ContactChannelTypeCode) REFERENCES ContactChannelType(ContactChannelTypeCode),
     FOREIGN KEY (CustomerCode) REFERENCES Customer(CustomerCode),
     FOREIGN KEY (RepresentativeCode) REFERENCES Representative(RepresentativeCode),
-    FOREIGN KEY (CreatedBy) REFERENCES Employees(EmployeeID),
-    FOREIGN KEY (UpdatedBy) REFERENCES Employees(EmployeeID)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID),
+    FOREIGN KEY (UpdatedBy) REFERENCES Users(UserID)
 );
 
