@@ -359,114 +359,203 @@ myproject/
 O desenvolvimento deve ser realizado dentro da pasta **Code**, mantendo a estrutura sugerida abaixo:
 
 ```
-├── Code
-│   ├──FlowContracts/
-│   │  ├── Address_Service/
-│   │  │   ├── app/
-│   │  │   │   ├── __init__.py
-│   │  │   │   ├── models.py
-│   │  │   │   ├── routes/
-│   │  │   │   │   ├── __init__.py
-│   │  │   │   │   ├── Address_routes.py
-│   │  │   │   ├── config.py
-│   │  │   ├── Dockerfile
-│   │  │   ├── requirements.txt
-│   │  │   ├── run.py
-│   │  ├── Auth_Service/
-│   │  │   ├── app/
-│   │  │   │   ├── __init__.py
-│   │  │   │   ├── models.py
-│   │  │   │   ├── routes/
-│   │  │   │   │   ├── __init__.py
-│   │  │   │   │   ├── Auth_routes.py
-│   │  │   │   ├── config.py
-│   │  │   ├── Dockerfile
-│   │  │   ├── requirements.txt
-│   │  │   ├── run.py
-│   │  ├── Contract_Service/
-│   │  │   ├── app/
-│   │  │   │   ├── __init__.py
-│   │  │   │   ├── models.py
-│   │  │   │   ├── routes/
-│   │  │   │   │   ├── __init__.py
-│   │  │   │   │   ├── Contract_routes.py
-│   │  │   │   ├── config.py
-│   │  │   ├── Dockerfile
-│   │  │   ├── requirements.txt
-│   │  │   ├── run.py
-│   │  ├── Customer_Service/
-│   │  │   ├── app/
-│   │  │   │   ├── __init__.py
-│   │  │   │   ├── models.py
-│   │  │   │   ├── routes/
-│   │  │   │   │   ├── __init__.py
-│   │  │   │   │   ├── Customer_routes.py
-│   │  │   │   ├── config.py
-│   │  │   ├── Dockerfile
-│   │  │   ├── requirements.txt
-│   │  │   ├── run.py
-│   │  ├── Leads_Service/
-│   │  │   ├── app/
-│   │  │   │   ├── __init__.py
-│   │  │   │   ├── models.py
-│   │  │   │   ├── routes/
-│   │  │   │   │   ├── __init__.py
-│   │  │   │   │   ├── Leads_routes.py
-│   │  │   │   ├── config.py
-│   │  │   ├── Dockerfile
-│   │  │   ├── requirements.txt
-│   │  │   ├── run.py
-│   │  ├── Proposal_Service/
-│   │  │   ├── app/
-│   │  │   │   ├── __init__.py
-│   │  │   │   ├── models.py
-│   │  │   │   ├── routes/
-│   │  │   │   │   ├── __init__.py
-│   │  │   │   │   ├── Proposal_routes.py
-│   │  │   │   ├── config.py
-│   │  │   ├── Dockerfile
-│   │  │   ├── requirements.txt
-│   │  │   ├── run.py
-│   │  ├── Template_Service/
-│   │  │   ├── app/
-│   │  │   │   ├── __init__.py
-│   │  │   │   ├── models.py
-│   │  │   │   ├── routes/
-│   │  │   │   │   ├── __init__.py
-│   │  │   │   │   ├── Template_routes.py
-│   │  │   │   ├── config.py
-│   │  │   ├── Dockerfile
-│   │  │   ├── requirements.txt
-│   │  │   ├── run.py
-│   │  ├──User_Service/
-│   │  │   ├── app/
-│   │  │   │   ├── __init__.py
-│   │  │   │   ├── models.py
-│   │  │   │   ├── routes/
-│   │  │   │   │   ├── __init__.py
-│   │  │   │   │   ├── User_routes.py
-│   │  │   │   ├── config.py
-│   │  │   ├── Dockerfile
-│   │  │   ├── requirements.txt
-│   │  │   ├── run.py
-│   │  ├──{Service-1}_Service/
-│   │  │   ├── app/
-│   │  │   │   ├── __init__.py
-│   │  │   │   ├── models.py
-│   │  │   │   ├── routes/
-│   │  │   │   │   ├── __init__.py
-│   │  │   │   │   ├── {Service-1}_routes.py
-│   │  │   │   ├── config.py
-│   │  │   ├── Dockerfile
-│   │  │   ├── requirements.txt
-│   │  │   ├── run.py
-│   │  ├── docker-compose.yml
-│   │  └── .env
-│   ├── SQL/
-│   │   ├── init.sql
-├── Draw
-│   ├── Fluxo Workflow de propostas.drawio
-└── Readme.md
+myproject/
+├── code/
+│   ├── FastAPI 
+│   │   ├── Address_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Address_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Auth_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Auth_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Contract_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Contract_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Customer_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Customer_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Leads_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Leads_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Proposal_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Proposal_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   ├── Template_Service/
+│   │   │   ├── app/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── models.py
+│   │   │   │   ├── routes/
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   └── Template_routes.py
+│   │   │   │   └── config.py
+│   │   │   ├── Dockerfile
+│   │   │   ├── requirements.txt
+│   │   │   └── run.py
+│   │   └── User_Service/
+│   │       ├── app/
+│   │       │   ├── __init__.py
+│   │       │   ├── models.py
+│   │       │   ├── routes/
+│   │       │   │   ├── __init__.py
+│   │       │   │   └── User_routes.py
+│   │       │   └── config.py
+│   │       ├── Dockerfile
+│   │       ├── requirements.txt
+│   │       └── run.py
+│   ├── DjangoApp/
+│   │   ├── Dockerfile
+│   │   ├── requirements.txt
+│   │   ├── manage.py
+│   │   ├── app/
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   ├── views.py
+│   │   ├── urls.py
+│   │   ├── serializers.py
+│   │   ├── migrations/
+│   │   │   ├── __init__.py
+│   │   └── templates/
+│   │       └── project/
+│   │           ├── __init__.py
+│   │           ├── asgi.py
+│   │           ├── settings.py
+│   │           ├── urls.py
+│   │           ├── wsgi.py
+│   ├── React (Front-end)
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   │   ├── Header/
+│   │   │   │   │   ├── Header.js
+│   │   │   │   │   └── Header.css
+│   │   │   │   ├── Footer/
+│   │   │   │   │   ├── Footer.js
+│   │   │   │   │   └── Footer.css
+│   │   │   │   └── ...
+│   │   │   ├── pages/
+│   │   │   │   ├── Home/
+│   │   │   │   │   ├── Home.js
+│   │   │   │   │   └── Home.css
+│   │   │   │   ├── About/
+│   │   │   │   │   ├── About.js
+│   │   │   │   │   └── About.css
+│   │   │   │   └── ...
+│   │   │   ├── services/
+│   │   │   │   ├── api.js
+│   │   │   │   └── ...
+│   │   │   ├── utils/
+│   │   │   │   ├── helpers.js
+│   │   │   │   └── ...
+│   │   │   ├── styles/
+│   │   │   │   ├── global.css
+│   │   │   │   └── ...
+│   │   │   ├── App.js
+│   │   │   ├── index.js
+│   │   │   └── index.css
+│   │   ├── public/
+│   │   │   ├── index.html
+│   │   │   ├── favicon.ico
+│   │   │   └── ...
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── .gitignore
+│   │   ├── .env
+│   │   └── README.md
+│   ├── Nginx1 (proxy reverso entre os microserviços e o banco de dados)
+│   │   ├── nginx.conf
+│   │   ├── default.conf
+│   │   ├── mime.types
+│   │   ├── fastcgi_params
+│   │   ├── uwsgi_params
+│   │   ├── ssl/
+│   │   │   ├── server.crt
+│   │   │   └── server.key
+│   │   └── nginx.sh
+│   ├── Nginx2 (proxy reverso entre o Django e as APIs FastAPI)
+│   │   ├── nginx.conf
+│   │   ├── default.conf
+│   │   ├── mime.types
+│   │   ├── fastcgi_params
+│   │   ├── uwsgi_params
+│   │   ├── ssl/
+│   │   │   ├── server.crt
+│   │   │   └── server.key
+│   │   └── nginx.sh
+│   ├── Nginx3 (proxy reverso entre as APIs e o front-end)
+│   │   ├── nginx.conf
+│   │   ├── default.conf
+│   │   ├── mime.types
+│   │   ├── fastcgi_params
+│   │   ├── uwsgi_params
+│   │   ├── ssl/
+│   │   │   ├── server.crt
+│   │   │   └── server.key
+│   │   └── nginx.sh
+│   ├── Database
+│   │   └── sql/
+│   │       └── init-db.sql
+│   ├── Dockerfiles/
+│   │   ├── Dockerfile-database
+│   │   ├── Dockerfile-nginx_DB_MS
+│   │   ├── Dockerfile-django
+│   │   ├── Dockerfile-nginx_MS_API
+│   │   ├── Dockerfile-flastAPI
+│   │   ├── Dockerfile-nginx_API_Front
+│   │   └── Dockerfile-react
+│   ├── docker-compose.yml
+│   └── .env
+├── draw/
+│   └── Fluxo_Workflow_de_propostas.drawio
+└── README.md
 ```
 
 ## Detalhamento das Funcionalidades
