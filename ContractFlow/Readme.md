@@ -204,7 +204,7 @@ myproject/
 │   │   │   └── server.key
 │   │   └── nginx.sh
 │   ├── Database
-│   │   └── sql/
+│   │   └── SQL/
 │   │       └── init-db.sql
 │   ├── Dockerfiles/
 │   │   ├── Dockerfile-database
