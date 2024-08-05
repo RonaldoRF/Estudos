@@ -1,0 +1,62 @@
+version: "3"
+networks:
+  network_WF:
+    name: network_WF
+    driver: bridge
+volumes:
+  mysqldb-data:
+    name: mysqldb-data
+services:
+  mysql: 
+    image: mysql:8.0.17
+    container_name: mysql-server
+    hostname: mysql-server
+    cap_add: 
+       - SYS_NICE
+    restart: unless-stopped
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_USER: 'aluno'
+      MYSQL_PASSWORD: '!QAZ2wsx'
+      MYSQL_ROOT_PASSWORD: '!QAZ2wsx#EDC'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - ./Database/SQL:/docker-entrypoint-initdb.d
+      - ./Database/Metadata:/var/lib/mysql
+    networks:
+      - network_WF
+  django:
+    build: ./Microservices/Django
+    container_name: django-server
+    hostname: django-server
+    restart: unless-stopped
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - '8000:8000'
+    depends_on:
+      - mysql
+    environment:
+      - MYSQL_HOST=mysql-server
+      - MYSQL_PORT=3306
+      - MYSQL_USER=aluno
+      - MYSQL_PASSWORD=!QAZ2wsx
+      - MYSQL_DB=workflow_db
+    volumes:
+      - ./Microservices/Django/app:/app
+    networks:
+      - network_WF
+  nginx:
+    build: ./nginx
+    container_name: nginx-server
+    hostname: nginx-server
+    restart: unless-stopped
+    ports:
+      - '80:80'
+    depends_on:
+      - django
+    networks:
+      - network_WF
+

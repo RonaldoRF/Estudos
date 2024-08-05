@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `Status` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `Country` (
+CREATE TABLE IF NOT EXISTS `Countries` (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `ISOCode` CHAR(3) NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `Country` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `State` (
+CREATE TABLE IF NOT EXISTS `States` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `Abbreviation` CHAR(2),
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `State` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `City` (
+CREATE TABLE IF NOT EXISTS `Cities` (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(100) NOT NULL,
     Population BIGINT,
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `City` (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT);
 
-CREATE TABLE IF NOT EXISTS `Street` (
+CREATE TABLE IF NOT EXISTS `Streets` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `PostalCode` VARCHAR(20),
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `Street` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `BusinessSector` (
+CREATE TABLE IF NOT EXISTS `BusinessSectors` (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `Description` TEXT,
@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `BusinessSector` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `MarketSegment` (
+CREATE TABLE IF NOT EXISTS `MarketSegments` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `Description` TEXT,
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `MarketSegment` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `ActivityBranch` (
+CREATE TABLE IF NOT EXISTS `ActivityBranchs` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `Description` TEXT,
@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `ActivityBranch` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `ServiceSubcategory` (
+CREATE TABLE IF NOT EXISTS `ServiceSubcategories` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `Description` TEXT,
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `ServiceSubcategory` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `Customer` (
+CREATE TABLE IF NOT EXISTS `Customers` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `ServiceStartDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS `CustomerAddress` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `ContactChannelType` (
+CREATE TABLE IF NOT EXISTS `ContactChannelTypes` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Description` VARCHAR(50),
     `CreationDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `ContactChannelType` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `Representative` (
+CREATE TABLE IF NOT EXISTS `Representatives` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `CustomerId` INT,
     `RepresentativeName` VARCHAR(100) NOT NULL,
@@ -199,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `Representative` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `ContactChannelRepresentative` (
+CREATE TABLE IF NOT EXISTS `ContactChannelRepresentatives` (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     `CustomerId` INT,
     `RepresentativeId` INT,
@@ -220,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `Employees` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `Template` (
+CREATE TABLE IF NOT EXISTS `Templates` (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `Description` TEXT,
@@ -229,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `Template` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `AttributeType` (
+CREATE TABLE IF NOT EXISTS `AttributeTypes` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `CreationDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `AttributeType` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `DataType` (
+CREATE TABLE IF NOT EXISTS `DataTypes` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `CreationDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -245,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `DataType` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `Attribute` (
+CREATE TABLE IF NOT EXISTS `Attributes` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `AttributeTypeId` INT NOT NULL,
@@ -255,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `Attribute` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `TemplateAttribute` (
+CREATE TABLE IF NOT EXISTS `TemplateAttributes` (
     Id INT AUTO_INCREMENT PRIMARY KEY,
     TemplateID INT,
     AttributeID INT,
@@ -264,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `TemplateAttribute` (
     LastUpdateDate DATETIME ON UPDATE CURRENT_TIMESTAMP,
     UpdatedBy INT);
 
-Create table if not exists `ElementType` (
+Create table if not exists `ElementTypes` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(50), -- Tipo de elemento (ex: 'input', 'select', 'textarea')
     `Tag` VARCHAR(255),
@@ -273,7 +273,7 @@ Create table if not exists `ElementType` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `TemplateElement` (
+CREATE TABLE IF NOT EXISTS `TemplateElements` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `TemplateAttributeID` INT,
     `ElementTypeID` INT, -- Tipo de elemento (ex: 'input', 'select', 'textarea')
@@ -287,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `TemplateElement` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `Step` (
+CREATE TABLE IF NOT EXISTS `Steps` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `Name` VARCHAR(100) NOT NULL,
     `Description` TEXT,
@@ -296,7 +296,7 @@ CREATE TABLE IF NOT EXISTS `Step` (
     `LastUpdateDate` DATETIME ON UPDATE CURRENT_TIMESTAMP,
     `UpdatedBy` INT);
 
-CREATE TABLE IF NOT EXISTS `TemplateStep` (
+CREATE TABLE IF NOT EXISTS `TemplateSteps` (
     `Id` INT AUTO_INCREMENT PRIMARY KEY,
     `TemplateID` INT,
     `StepID` INT,

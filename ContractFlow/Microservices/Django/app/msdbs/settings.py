@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-3_hz$_(is^m43@aex^hsplg7)r#1vv)ak#rriu96#x@x7t^4#y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['0.0.0.0']
 
 # Application definition
 
@@ -37,10 +36,35 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
-    'country',
-    'state',
-    'city',
+    'ActivityBranchs',
+    'AttributeTypes',
+    'Attributes',
+    'BusinessSectors',
+    'Cities',
+    'ContactChannelRepresentatives',
+    'ContactChannelTypes',
+    'Countries',
+    'CustomerAddress',
+    'Customers',
+    'DataTypes',
+    'ElementTypes',
+    'Employees',
+    'MarketSegments',
+    'Profiles',
+    'ProfilesRoles',
+    'Representatives',
+    'Roles',
+    'ServiceSubcategories',
+    'States',
+    'Status',
+    'StepStatus',
+    'Steps',
+    'Streets',
+    'TemplateAttributes',
+    'TemplateElements',
+    'TemplateSteps',
+    'Templates',
+    'Users',
 ]
 
 MIDDLEWARE = [
